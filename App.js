@@ -1,13 +1,14 @@
 import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
 import {StateProvider} from './src/contexts/StateContext';
+import {NavigationContainer} from '@react-navigation/native';
+import AuthStack from './src/stacks/AuthStack';
 
 const App = () => {
   return (
     <StateProvider>
-      <SafeAreaView>
-        <Text>Teste</Text>
-      </SafeAreaView>
+      <NavigationContainer>
+        <AuthStack />
+      </NavigationContainer>
     </StateProvider>
   );
 };
