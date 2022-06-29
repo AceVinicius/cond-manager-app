@@ -69,6 +69,20 @@ const api = {
 
     return json;
   },
+
+  register: async (name, email, cpf, password, confirmPassword) => {
+    let params = {
+      name,
+      email,
+      cpf,
+      password,
+      password_confirm: confirmPassword,
+    };
+
+    let json = await request('post', 'auth/register', params);
+
+    return json;
+  },
 };
 
 export default api;
