@@ -1,6 +1,13 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
-import {Image, SafeAreaView, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import {useStateValue} from '../../contexts/StateContext';
 import api from '../../services/api';
@@ -26,7 +33,7 @@ export default () => {
 
     let response = await api.login(cpf, password);
 
-    if (response.error !== "") {
+    if (response.error !== '') {
       alert(response.error);
       return;
     }
@@ -56,7 +63,6 @@ export default () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.padding}>
-
         <Image
           source={require('../../assets/login-image.png')}
           style={styles.image}
@@ -66,30 +72,23 @@ export default () => {
           placeholder="Digite seu CPF"
           keyboardType="numeric"
           value={cpf}
-          onChangeText={(t) => setCpf(t)}
+          onChangeText={t => setCpf(t)}
           style={styles.input}
         />
         <TextInput
           placeholder="Digite sua senha"
           secureTextEntry={true}
           value={password}
-          onChangeText={(t) => setPassword(t)}
+          onChangeText={t => setPassword(t)}
           style={styles.input}
         />
 
-        <TouchableOpacity
-          onPress={handleLoginButton}
-          style={styles.button}
-        >
+        <TouchableOpacity onPress={handleLoginButton} style={styles.button}>
           <Text style={styles.text}>Entrar</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleRegisterButton} 
-          style={styles.button}
-        >
+        <TouchableOpacity onPress={handleRegisterButton} style={styles.button}>
           <Text style={styles.text}>Cadastrar-se</Text>
         </TouchableOpacity>
-
       </View>
     </SafeAreaView>
   );

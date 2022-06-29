@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 
@@ -12,27 +12,22 @@ export default () => {
     let response = await api.logout();
 
     if (response.error !== '') {
-        alert(response.error);
-        return;
+      alert(response.error);
+      return;
     }
 
     navigation.reset({
-        index: 1,
-        routes: [{name: 'PreloadScreen'}],
+      index: 1,
+      routes: [{name: 'PreloadScreen'}],
     });
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.padding}>
-
-        <TouchableOpacity
-          onPress={handleLogoutButton}
-          style={styles.button}
-        >
+        <TouchableOpacity onPress={handleLogoutButton} style={styles.button}>
           <Text style={styles.text}>Sair</Text>
         </TouchableOpacity>
-
       </View>
     </SafeAreaView>
   );
