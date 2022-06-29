@@ -41,6 +41,7 @@ const request = async (method, endpoint, params, token = null) => {
 };
 
 const api = {
+
   getToken: async () => {
     return await AsyncStorage.getItem('token');
   },
@@ -51,6 +52,18 @@ const api = {
 
     return json;
   },
+
+  login: async (username, password) => {
+    let params = {
+      cpf: username,
+      password: password
+    };
+
+    let json = await request('post', 'auth/login', params);
+
+    return json;
+  },
+
 };
 
 export default api;
