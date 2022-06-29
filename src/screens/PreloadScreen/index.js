@@ -33,10 +33,10 @@ export default () => {
         return;
       }
 
-      let result = await api.validateToken();
+      let response = await api.validateToken();
 
-      if (result.error !== '') {
-        alert(result.error);
+      if (response.error !== '') {
+        alert(response.error);
         dispatch({
           type: 'setToken',
           payload: {
@@ -48,9 +48,9 @@ export default () => {
       }
 
       dispatch({
-        type: 'wetUser',
+        type: 'setUser',
         payload: {
-          user: result.user,
+          user: response.user,
         },
       });
       goToPropertyScreen();
