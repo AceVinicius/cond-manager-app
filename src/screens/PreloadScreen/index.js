@@ -36,7 +36,6 @@ export default () => {
       let response = await api.validateToken();
 
       if (response.error !== '') {
-        alert(response.error);
         dispatch({
           type: 'setToken',
           payload: {

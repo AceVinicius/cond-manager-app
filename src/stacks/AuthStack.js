@@ -1,8 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-import PreloadScreen from '../screens/PreloadScreen';
+import ChoosePropertyScreen from '../screens/ChoosePropertyScreen';
 import LoginScreen from '../screens/LoginScreen';
+import PreloadScreen from '../screens/PreloadScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,11 @@ export default () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
+        options={options}
+      />
+      <Stack.Screen
+        name="ChoosePropertyScreen"
+        component={ChoosePropertyScreen}
         options={options}
       />
     </Stack.Navigator>

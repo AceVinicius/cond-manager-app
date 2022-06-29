@@ -47,7 +47,7 @@ const api = {
   },
 
   validateToken: async () => {
-    let token = await this.getToken();
+    let token = await api.getToken();
     let json = await request('post', 'auth/validate', {}, token);
 
     return json;
@@ -60,6 +60,13 @@ const api = {
     };
 
     let json = await request('post', 'auth/login', params);
+
+    return json;
+  },
+
+  logout: async () => {
+    let token = await api.getToken();
+    let json = await request('post', 'auth/logout', {}, token);
 
     return json;
   },
