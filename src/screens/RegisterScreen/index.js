@@ -14,7 +14,7 @@ import styles from './style';
 
 export default () => {
   const navigation = useNavigation();
-  const [context, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -91,35 +91,35 @@ export default () => {
         <TextInput
           placeholder="Digite seu Nome"
           value={name}
-          onChangeText={x => setName(x)}
+          onChangeText={(x) => setName(x)}
           style={styles.input}
         />
         <TextInput
           placeholder="Digite seu e-mail"
           keyboardType="email-address"
           value={email}
-          onChangeText={x => setEmail(x)}
+          onChangeText={(x) => setEmail(x)}
           style={styles.input}
         />
         <TextInput
           placeholder="Digite seu CPF"
           keyboardType="numeric"
           value={cpf}
-          onChangeText={x => setCpf(x)}
+          onChangeText={(x) => setCpf(x)}
           style={styles.input}
         />
         <TextInput
           placeholder="Digite sua senha"
           secureTextEntry={true}
           value={password}
-          onChangeText={x => setPassword(x)}
+          onChangeText={(x) => setPassword(x)}
           style={styles.input}
         />
         <TextInput
           placeholder="Confirme sua senha"
           secureTextEntry={true}
           value={confirmPassword}
-          onChangeText={x => setConfirmPassword(x)}
+          onChangeText={(x) => setConfirmPassword(x)}
           style={styles.input}
         />
 

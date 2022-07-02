@@ -8,7 +8,7 @@ import api from '../../services/api';
 
 export default () => {
   const navigation = useNavigation();
-  const [context, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   useEffect(() => {
     function goToLoginScreen() {
@@ -56,7 +56,7 @@ export default () => {
     }
 
     checkLogin();
-  }, []);
+  });
 
   return (
     <SafeAreaView style={styles.container}>

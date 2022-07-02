@@ -72,14 +72,14 @@ export default () => {
           placeholder="Digite seu CPF"
           keyboardType="numeric"
           value={cpf}
-          onChangeText={t => setCpf(t)}
+          onChangeText={(t) => setCpf(t)}
           style={styles.input}
         />
         <TextInput
           placeholder="Digite sua senha"
           secureTextEntry={true}
           value={password}
-          onChangeText={t => setPassword(t)}
+          onChangeText={(t) => setPassword(t)}
           style={styles.input}
         />
 
