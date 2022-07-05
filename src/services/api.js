@@ -1,22 +1,22 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = null;
+const BASE_URL = 'http://cond-manager.herokuapp.com/api';
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
 
-  let fullUrl = `${BASE_URL}/${endpoint}`;
-  let headers = {'Content-Type': 'application/json'};
+  let url = `${BASE_URL}/${endpoint}`;
+  let headers = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + token ?? null
+  };
   let body = null;
-
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
 
   switch (method) {
     case 'get':
       let queryString = new URLSearchParams(params).toString();
-      fullUrl += `?${queryString}`;
+      url += `?${queryString}`;
       break;
 
     case 'post':
@@ -29,7 +29,7 @@ const request = async (method, endpoint, params, token = null) => {
       break;
   }
 
-  let req = await fetch(fullUrl, {
+  let req = await fetch(url, {
     method: method,
     headers: headers,
     body: body,
@@ -76,10 +76,10 @@ const api = {
       email,
       cpf,
       password,
-      password_confirm: confirmPassword,
+      password_confirmation: confirmPassword,
     };
 
-    let json = await request('post', 'auth/register', params);
+    let json = await request('post', 'users', params);
 
     return json;
   },

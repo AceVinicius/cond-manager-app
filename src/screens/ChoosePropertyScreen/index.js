@@ -11,8 +11,8 @@ export default () => {
   async function handleLogoutButton() {
     let response = await api.logout();
 
-    if (response.error !== '') {
-      alert(response.error);
+    if (response.message !== '') {
+      alert(response.message);
       return;
     }
 

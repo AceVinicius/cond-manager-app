@@ -62,8 +62,8 @@ export default () => {
       confirmPassword,
     );
 
-    if (response.error !== '') {
-      alert(response.error);
+    if (response.message !== '') {
+      alert(response.message);
       return;
     }
 

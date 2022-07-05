@@ -33,8 +33,8 @@ export default () => {
 
     let response = await api.login(cpf, password);
 
-    if (response.error !== '') {
-      alert(response.error);
+    if (response.message !== '') {
+      alert(response.message);
       return;
     }
 
