@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = 'http://cond-manager.herokuapp.com/api';
+const BASE_URL = 'https://cond-manager.herokuapp.com/api';
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
