@@ -7,9 +7,9 @@ const request = async (method, endpoint, params, token = null) => {
 
   let url = `${BASE_URL}/${endpoint}`;
   let headers = {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + token ?? null
+    Authorization: 'Bearer ' + token ?? null,
   };
   let body = null;
 
@@ -66,6 +66,9 @@ const api = {
   logout: async () => {
     let token = await api.getToken();
     let json = await request('post', 'auth/logout', {}, token);
+
+    await AsyncStorage.removeItem('token');
+    await AsyncStorage.removeItem('property');
 
     return json;
   },
