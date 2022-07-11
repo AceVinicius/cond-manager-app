@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
+  Alert,
   SafeAreaView,
   Text,
   TextInput,
@@ -30,27 +31,27 @@ export default () => {
 
   async function handleRegisterButton() {
     if (!name) {
-      alert('Preencha o nome');
+      Alert.alert('Input', 'Preencha o nome');
       return;
     }
 
     if (!email) {
-      alert('Preencha o email');
+      Alert.alert('Input', 'Preencha o email');
       return;
     }
 
     if (!cpf) {
-      alert('Preencha o cpf');
+      Alert.alert('Input', 'Preencha o cpf');
       return;
     }
 
     if (!password) {
-      alert('Preencha a senha');
+      Alert.alert('Input', 'Preencha a senha');
       return;
     }
 
     if (!confirmPassword) {
-      alert('Confirme a senha');
+      Alert.alert('Input', 'Confirme a senha');
       return;
     }
 
@@ -63,7 +64,7 @@ export default () => {
     );
 
     if (response.message !== '') {
-      alert(response.message);
+      Alert.alert('Register', response.message);
       return;
     }
 
@@ -81,7 +82,7 @@ export default () => {
     });
     navigation.reset({
       index: 1,
-      routes: [{name: 'ChoosePropertyScreen'}],
+      routes: [{name: 'PreloadScreen'}],
     });
   }
 

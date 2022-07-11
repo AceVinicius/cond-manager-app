@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
+  Alert,
   Image,
   SafeAreaView,
   Text,
@@ -15,26 +16,26 @@ import styles from './style';
 
 export default () => {
   const navigation = useNavigation();
-  const [context, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const [cpf, setCpf] = useState('');
   const [password, setPassword] = useState('');
 
   async function handleLoginButton() {
     if (!cpf) {
-      alert('Preencha o cpf');
+      Alert.alert('Input', 'Preencha o cpf');
       return;
     }
 
     if (!password) {
-      alert('Preencha a senha');
+      Alert.alert('Input', 'Preencha a senha');
       return;
     }
 
     let response = await api.login(cpf, password);
 
     if (response.message !== '') {
-      alert(response.message);
+      Alert.alert('Login', response.message);
       return;
     }
 
@@ -50,9 +51,10 @@ export default () => {
         user: response.user,
       },
     });
+
     navigation.reset({
       index: 1,
-      routes: [{name: 'ChoosePropertyScreen'}],
+      routes: [{name: 'PreloadScreen'}],
     });
   }
 
