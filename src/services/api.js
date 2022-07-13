@@ -86,6 +86,10 @@ const api = {
 
     return json;
   },
+
+  getProperty: async () => {
+    return await AsyncStorage.getItem('property');
+  },
 };
 
 export default api;

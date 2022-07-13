@@ -18,6 +18,7 @@ export default (state = initialState, action = {}) => {
       break;
 
     case 'setProperty':
+      AsyncStorage.setItem('property', JSON.stringify(action.payload.property));
       state.property = action.payload.property;
       break;
 
