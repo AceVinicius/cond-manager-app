@@ -3,21 +3,25 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: '#f5f6fa',
+  },
+  padding: {
+    flex: 1,
+    padding: 20,
   },
   scroller: {
     flex: 1,
-    padding: 20,
   },
   title: {
     fontSize: 16,
     color: '#000000',
-    // textAlign: 'center',
-    // marginTop: 10,
+    textAlign: 'center',
+    marginTop: 10,
+    fontWeight: 'bold',
   },
   propertyList: {
-    margin: '20px 0',
+    marginHorizontal: 0,
+    marginVertical: 20,
   },
   propertyListItem: {
     backgroundColor: '#ffffff',
@@ -34,16 +38,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   bigArea: {
-    margin: '50px 0',
+    marginHorizontal: 0,
+    marginVertical: 50,
     alignItems: 'center',
   },
   button: {
     backgroundColor: '#8863e6',
+    padding: 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
-    padding: 15,
-    marginHorizontal: 20,
     marginBottom: 15,
   },
   text: {

@@ -34,7 +34,7 @@ export default () => {
     checkPropertySel();
   });
 
-  async function handleChoosePropertyButton(property) {
+  function handleChoosePropertyButton(property) {
     dispatch({
       type: 'setProperty',
       payload: {
@@ -64,46 +64,44 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scroller}>
-        {loading && <ActivityIndicator color="#8863E6" size="large" />}
+      <View style={styles.padding}>
+        <ScrollView style={styles.scroller}>
+          {loading && <ActivityIndicator color="#8863E6" size="large" />}
 
-        {!loading && context.user.user.properties.length > 0 && (
-          <>
-            {JSON.stringify(context.user.user)}
+          {!loading && context.user.user.properties.length > 0 && (
+            <>
+              <Text style={styles.title}>Olá {context.user.user.name}</Text>
+              <Text style={styles.title}>Escolha uma de suas propriedades</Text>
 
-            <Text style={styles.title}>Olá {context.user.user.name}</Text>
-            <Text style={styles.title}>Escolha uma de suas propriedades</Text>
+              <View style={styles.propertyList}>
+                {context.user.user.properties.map((item, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => handleChoosePropertyButton(item)}
+                    style={styles.propertyListItem}>
+                    <Text style={styles.propertyListItemText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </>
+          )}
 
-            <View style={styles.propertyList}>
-              {context.user.user.properties.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleChoosePropertyButton(item)}
-                  style={styles.propertyListItem}>
-                  <Text style={styles.propertyListItemText}>{item.name}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          </>
-        )}
+          {!loading && context.user.user.properties.length <= 0 && (
+            <>
+              <Text style={styles.title}>
+                {context.user.user.name}, parabéns pelo cadastro!
+              </Text>
+              <Text style={styles.title}>
+                Agora a administracao precisa liberar seu acesso.
+              </Text>
+            </>
+          )}
+        </ScrollView>
 
-        {!loading && context.user.user.properties.length <= 0 && (
-          <>
-            {JSON.stringify(context.user.user)}
-
-            <Text style={styles.title}>
-              {context.user.user.name}, parabéns pelo cadastro!
-            </Text>
-            <Text style={styles.title}>
-              Agora a administracao precisa liberar seu acesso.
-            </Text>
-          </>
-        )}
-      </ScrollView>
-
-      <TouchableOpacity onPress={handleLogoutButton} style={styles.button}>
-        <Text style={styles.text}>Sair</Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleLogoutButton} style={styles.button}>
+          <Text style={styles.text}>Sair</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
