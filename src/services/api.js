@@ -29,13 +29,19 @@ const request = async (method, endpoint, params, token = null) => {
       break;
   }
 
-  let req = await fetch(url, {
-    method: method,
-    headers: headers,
-    body: body,
-  });
+  let res;
 
-  let json = await req.json();
+  try {
+    res = await fetch(url, {
+      method: method,
+      headers: headers,
+      body: body,
+    });
+  } catch (error) {
+    return error;
+  }
+
+  let json = await res.json();
 
   return json;
 };
