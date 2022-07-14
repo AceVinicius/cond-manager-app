@@ -34,7 +34,7 @@ export default () => {
     checkPropertySel();
   });
 
-  async function handleChoosePropertyButton(property) {
+  function handleChoosePropertyButton(property) {
     dispatch({
       type: 'setProperty',
       payload: {
@@ -69,8 +69,6 @@ export default () => {
 
         {!loading && context.user.user.properties.length > 0 && (
           <>
-            {JSON.stringify(context.user.user)}
-
             <Text style={styles.title}>Olá {context.user.user.name}</Text>
             <Text style={styles.title}>Escolha uma de suas propriedades</Text>
 
@@ -89,8 +87,6 @@ export default () => {
 
         {!loading && context.user.user.properties.length <= 0 && (
           <>
-            {JSON.stringify(context.user.user)}
-
             <Text style={styles.title}>
               {context.user.user.name}, parabéns pelo cadastro!
             </Text>
