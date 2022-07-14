@@ -34,7 +34,7 @@ export default () => {
     checkPropertySel();
   });
 
-  async function handleChoosePropertyButton(property) {
+  function handleChoosePropertyButton(property) {
     dispatch({
       type: 'setProperty',
       payload: {
@@ -48,20 +48,6 @@ export default () => {
     });
   }
 
-  async function handleLogoutButton() {
-    let response = await api.logout();
-
-    if (response.message !== '') {
-      Alert.alert('Logout', response.message);
-      return;
-    }
-
-    navigation.reset({
-      index: 1,
-      routes: [{name: 'PreloadScreen'}],
-    });
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scroller}>
@@ -69,8 +55,6 @@ export default () => {
 
         {!loading && context.user.user.properties.length > 0 && (
           <>
-            {JSON.stringify(context.user.user)}
-
             <Text style={styles.title}>Olá {context.user.user.name}</Text>
             <Text style={styles.title}>Escolha uma de suas propriedades</Text>
 
@@ -89,8 +73,6 @@ export default () => {
 
         {!loading && context.user.user.properties.length <= 0 && (
           <>
-            {JSON.stringify(context.user.user)}
-
             <Text style={styles.title}>
               {context.user.user.name}, parabéns pelo cadastro!
             </Text>
@@ -100,10 +82,6 @@ export default () => {
           </>
         )}
       </ScrollView>
-
-      <TouchableOpacity onPress={handleLogoutButton} style={styles.button}>
-        <Text style={styles.text}>Sair</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
