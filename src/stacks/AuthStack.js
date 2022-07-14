@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import ChoosePropertyScreen from '../screens/ChoosePropertyScreen';
 import LoginScreen from '../screens/LoginScreen';
+import MainDrawer from './MainDrawer';
 import PreloadScreen from '../screens/PreloadScreen';
 import RegisterScreen from '../screens/RegisterScreen';
 
@@ -35,6 +36,11 @@ export default () => {
       <Stack.Screen
         name="ChoosePropertyScreen"
         component={ChoosePropertyScreen}
+        options={options}
+      />
+      <Stack.Screen
+        name="MainDrawer"
+        component={MainDrawer}
         options={options}
       />
     </Stack.Navigator>
