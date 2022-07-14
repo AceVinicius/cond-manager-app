@@ -54,7 +54,7 @@ export default () => {
 
     navigation.reset({
       index: 1,
-      routes: [{name: 'PreloadScreen'}],
+      routes: [{name: 'ChoosePropertyScreen'}],
     });
   }
 

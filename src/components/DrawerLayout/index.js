@@ -85,7 +85,7 @@ export default ({navigation, state}) => {
 
     navigation.reset({
       index: 1,
-      routes: [{name: 'PreloadScreen'}],
+      routes: [{name: 'LoginScreen'}],
     });
   }
 
