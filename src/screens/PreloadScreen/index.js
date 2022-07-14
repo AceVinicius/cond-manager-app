@@ -56,7 +56,7 @@ export default () => {
     }
 
     checkLogin();
-  });
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
