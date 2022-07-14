@@ -90,6 +90,20 @@ const api = {
   getProperty: async () => {
     return await AsyncStorage.getItem('property');
   },
+
+  getWall: async () => {
+    let token = await api.getToken();
+    let json = await request('get', 'walls', {}, token);
+
+    return json;
+  },
+
+  likeWallPost: async (id) => {
+    let token = await api.getToken();
+    let json = await request('post', `walls/${id}/like`, {}, token);
+
+    return json;
+  },
 };
 
 export default api;
