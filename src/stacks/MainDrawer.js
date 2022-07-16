@@ -1,19 +1,33 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import DocumentScreen from '../screens/DocumentScreen';
 import DrawerLayout from '../components/DrawerLayout';
 import WallScreen from '../screens/WallScreen';
 
 const Drawer = createDrawerNavigator();
 
-function getDrawerLayout(props) {
-  return <DrawerLayout {...props} />;
-}
-
 export default () => {
+  const screenOptions = {
+    headerShown: true,
+    headerTitle: '',
+    headerStyle: {
+      backgroundColor: '#F5F6FA',
+    },
+    headerShadowVisible: false,
+  };
+
+  function getDrawerLayout(props) {
+    return <DrawerLayout {...props} />;
+  }
+
   return (
-    <Drawer.Navigator drawerContent={(props) => getDrawerLayout(props)}>
+    <Drawer.Navigator
+      screenOptions={screenOptions}
+      drawerContent={(props) => getDrawerLayout(props)}
+    >
       <Drawer.Screen name="WallScreen" component={WallScreen} />
+      <Drawer.Screen name="DocumentScreen" component={DocumentScreen} />
     </Drawer.Navigator>
   );
 };

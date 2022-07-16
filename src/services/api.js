@@ -110,6 +110,13 @@ const api = {
 
     return json;
   },
+
+  getDocument: async () => {
+    let token = await api.getToken();
+    let json = await request('get', 'documents', {}, token);
+
+    return json;
+  },
 };
 
 export default api;
