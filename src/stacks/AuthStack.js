@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import ChoosePropertyScreen from '../screens/ChoosePropertyScreen';
@@ -16,8 +17,9 @@ export default () => {
 
   const screenOptions = {
     headerStyle: {
-      // backgroundColor: '#8863e6',
+      backgroundColor: '#F5F6FA',
     },
+    headerShadowVisible: false,
   };
 
   return (

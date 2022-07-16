@@ -1,11 +1,11 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, FlatList, SafeAreaView, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import {Alert, FlatList, SafeAreaView, View} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
 import WallItem from '../../components/WallItem';
+import WallItemEmpty from '../../components/WallItemEmpty';
 
 export default () => {
   const navigation = useNavigation();
@@ -29,7 +29,7 @@ export default () => {
     const response = await api.getWall();
 
     if (response.message !== '') {
-      Alert.alert('Wall', response.message);
+      Alert.alert('Mural de Avisos', response.message);
       setLoading(false);
       return;
     }
@@ -41,19 +41,13 @@ export default () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.padding}>
-        {!loading && wallList.length === 0 && (
-          <View style={styles.emptyList}>
-            <Icon name="folder-open" size={56} color="#666e78" />
-            <Text style={styles.emptyText}>Não há avisos no momento</Text>
-          </View>
-        )}
-
-        {!loading && wallList.length > 0 && (
+        {!loading && (
           <FlatList
             data={wallList}
             onRefresh={getWall}
             refreshing={loading}
             renderItem={({item}) => <WallItem data={item} />}
+            ListEmptyComponent={<WallItemEmpty />}
             keyExtractor={(item) => item.id.toString()}
             style={styles.list}
           />
