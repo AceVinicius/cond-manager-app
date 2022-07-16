@@ -6,11 +6,9 @@ import api from '../../services/api';
 import styles from './style';
 import DocumentItem from '../../components/DocumentItem';
 import ItemEmpty from '../../components/ItemEmpty';
-import {useStateValue} from '../../contexts/StateContext';
 
 export default () => {
   const navigation = useNavigation();
-  const [context] = useStateValue();
   const [loading, setLoading] = useState(true);
   const [billetList, setBilletList] = useState([]);
 
@@ -28,7 +26,7 @@ export default () => {
     setLoading(true);
     setBilletList([]);
 
-    const response = await api.getBillet(context.user.property.id);
+    const response = await api.getBillet();
 
     if (response.message !== '') {
       Alert.alert('Boletos', response.message);

@@ -118,9 +118,13 @@ const api = {
     return json;
   },
 
-  getBillet: async (id) => {
+  getBillet: async () => {
     let token = await api.getToken();
-    let json = await request('get', `units/${id}/billets`, {}, token);
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request('get', `units/${property.id}/billets`, {}, token);
 
     return json;
   },
