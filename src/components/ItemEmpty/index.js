@@ -4,11 +4,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import styles from './style';
 
-export default () => {
+export default ({icon, text}) => {
   return (
     <View style={styles.emptyList}>
-      <Icon name="folder-open" size={56} color="#666e78" />
-      <Text style={styles.emptyText}>Não há documentos no momento</Text>
+      <Icon name={icon} size={56} color="#8B63E7" />
+      <Text style={styles.emptyText}>{text}</Text>
     </View>
   );
 };

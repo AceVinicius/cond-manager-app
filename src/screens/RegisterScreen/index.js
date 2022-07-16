@@ -31,27 +31,27 @@ export default () => {
 
   async function handleRegisterButton() {
     if (!name) {
-      Alert.alert('Input', 'Preencha o nome');
+      Alert.alert('Formulário', 'Preencha o nome');
       return;
     }
 
     if (!email) {
-      Alert.alert('Input', 'Preencha o email');
+      Alert.alert('Formulário', 'Preencha o email');
       return;
     }
 
     if (!cpf) {
-      Alert.alert('Input', 'Preencha o cpf');
+      Alert.alert('Formulário', 'Preencha o cpf');
       return;
     }
 
     if (!password) {
-      Alert.alert('Input', 'Preencha a senha');
+      Alert.alert('Formulário', 'Preencha a senha');
       return;
     }
 
     if (!confirmPassword) {
-      Alert.alert('Input', 'Confirme a senha');
+      Alert.alert('Formulário', 'Confirme a senha');
       return;
     }
 
@@ -64,7 +64,7 @@ export default () => {
     );
 
     if (response.message !== '') {
-      Alert.alert('Register', response.message);
+      Alert.alert('Cadastro', response.message);
       return;
     }
 

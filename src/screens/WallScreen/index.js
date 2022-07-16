@@ -5,7 +5,7 @@ import {Alert, FlatList, SafeAreaView, View} from 'react-native';
 import api from '../../services/api';
 import styles from './style';
 import WallItem from '../../components/WallItem';
-import WallItemEmpty from '../../components/WallItemEmpty';
+import ItemEmpty from '../../components/ItemEmpty';
 
 export default () => {
   const navigation = useNavigation();
@@ -47,7 +47,9 @@ export default () => {
             onRefresh={getWall}
             refreshing={loading}
             renderItem={({item}) => <WallItem data={item} />}
-            ListEmptyComponent={<WallItemEmpty />}
+            ListEmptyComponent={
+              <ItemEmpty icon="newspaper-o" text="Não há avisos no momento." />
+            }
             keyExtractor={(item) => item.id.toString()}
             style={styles.list}
           />

@@ -23,12 +23,12 @@ export default () => {
 
   async function handleLoginButton() {
     if (!cpf) {
-      Alert.alert('Input', 'Preencha o cpf');
+      Alert.alert('Formulário', 'Preencha o cpf');
       return;
     }
 
     if (!password) {
-      Alert.alert('Input', 'Preencha a senha');
+      Alert.alert('Formulário', 'Preencha a senha');
       return;
     }
 

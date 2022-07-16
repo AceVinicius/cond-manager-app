@@ -5,7 +5,7 @@ import {Alert, FlatList, SafeAreaView, View} from 'react-native';
 import api from '../../services/api';
 import styles from './style';
 import DocumentItem from '../../components/DocumentItem';
-import DocumentItemEmpty from '../../components/DocumentItemEmpty';
+import ItemEmpty from '../../components/ItemEmpty';
 
 export default () => {
   const navigation = useNavigation();
@@ -47,7 +47,12 @@ export default () => {
             onRefresh={getDocument}
             refreshing={loading}
             renderItem={({item}) => <DocumentItem data={item} />}
-            ListEmptyComponent={<DocumentItemEmpty />}
+            ListEmptyComponent={
+              <ItemEmpty
+                icon="file-text"
+                text="Não há documentos no momento."
+              />
+            }
             keyExtractor={(item) => item.id.toString()}
             style={styles.list}
           />
