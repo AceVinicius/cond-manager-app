@@ -48,7 +48,10 @@ export default () => {
             refreshing={loading}
             renderItem={({item}) => <DocumentItem data={item} />}
             ListEmptyComponent={
-              <ItemEmpty icon="file-text" text="Não há boletos no momento." />
+              <ItemEmpty
+                icon="file-text"
+                text="Não há boletos nesta unidade no momento."
+              />
             }
             keyExtractor={(item) => item.id.toString()}
             style={styles.list}
