@@ -3,14 +3,12 @@ import React, {useEffect, useState} from 'react';
 import {Alert, FlatList, SafeAreaView, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {useStateValue} from '../../contexts/StateContext';
 import api from '../../services/api';
 import styles from './style';
 import WallItem from '../../components/WallItem';
 
 export default () => {
   const navigation = useNavigation();
-  const [context, dispatch] = useStateValue();
   const [loading, setLoading] = useState(true);
   const [wallList, setWallList] = useState([]);
 
