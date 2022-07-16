@@ -19,10 +19,10 @@ export default () => {
   }, []);
 
   useEffect(() => {
-    getDocument();
+    getDocuments();
   }, []);
 
-  async function getDocument() {
+  async function getDocuments() {
     setLoading(true);
     setDocumentList([]);
 
@@ -44,7 +44,7 @@ export default () => {
         {!loading && (
           <FlatList
             data={documentList}
-            onRefresh={getDocument}
+            onRefresh={getDocuments}
             refreshing={loading}
             renderItem={({item}) => <DocumentItem data={item} />}
             ListEmptyComponent={
