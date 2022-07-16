@@ -1,6 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
+import BilletScreen from '../screens/BilletScreen';
 import DocumentScreen from '../screens/DocumentScreen';
 import DrawerLayout from '../components/DrawerLayout';
 import WallScreen from '../screens/WallScreen';
@@ -28,6 +29,7 @@ export default () => {
     >
       <Drawer.Screen name="WallScreen" component={WallScreen} />
       <Drawer.Screen name="DocumentScreen" component={DocumentScreen} />
+      <Drawer.Screen name="BilletScreen" component={BilletScreen} />
     </Drawer.Navigator>
   );
 };

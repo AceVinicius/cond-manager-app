@@ -117,6 +117,13 @@ const api = {
 
     return json;
   },
+
+  getBillet: async (id) => {
+    let token = await api.getToken();
+    let json = await request('get', `units/${id}/billets`, {}, token);
+
+    return json;
+  },
 };
 
 export default api;

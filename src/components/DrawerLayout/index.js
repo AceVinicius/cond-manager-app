@@ -28,31 +28,31 @@ export default ({navigation, state}) => {
       icon: 'file-text',
       screen: 'DocumentScreen',
     },
-    {
-      title: 'Reservas',
-      icon: 'calendar',
-      screen: 'ReservationScreen',
-    },
-    {
-      title: 'Livro de Ocorrências',
-      icon: 'bug',
-      screen: 'WarningScreen',
-    },
-    {
-      title: 'Achados e Perdidos',
-      icon: 'search',
-      screen: 'LostAndFoundScreen',
-    },
+    // {
+    //   title: 'Reservas',
+    //   icon: 'calendar',
+    //   screen: 'ReservationScreen',
+    // },
+    // {
+    //   title: 'Livro de Ocorrências',
+    //   icon: 'bug',
+    //   screen: 'WarningScreen',
+    // },
+    // {
+    //   title: 'Achados e Perdidos',
+    //   icon: 'search',
+    //   screen: 'LostAndFoundScreen',
+    // },
     {
       title: 'Boletos',
       icon: 'wpforms',
       screen: 'BilletScreen',
     },
-    {
-      title: 'Perfil',
-      icon: 'user',
-      screen: 'ProfileScreen',
-    },
+    // {
+    //   title: 'Perfil',
+    //   icon: 'user',
+    //   screen: 'ProfileScreen',
+    // },
   ];
 
   function handleMenuButton(screen) {
