@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
     padding: 20,
     flex: 1,
   },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   title: {
     fontSize: 16,
     color: '#000000',

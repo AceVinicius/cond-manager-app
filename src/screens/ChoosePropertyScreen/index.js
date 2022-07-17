@@ -50,38 +50,44 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scroller}>
-        {loading && <ActivityIndicator color="#8863E6" size="large" />}
+      {loading && (
+        <View style={styles.center}>
+          <ActivityIndicator color="#8863E6" size="large" />
+        </View>
+      )}
 
-        {!loading && context.user.user.properties.length > 0 && (
-          <>
-            <Text style={styles.title}>Olá {context.user.user.name}</Text>
-            <Text style={styles.title}>Escolha uma de suas propriedades</Text>
+      {!loading && (
+        <ScrollView style={styles.scroller}>
+          {context.user.user.properties.length === 0 && (
+            <>
+              <Text style={styles.title}>
+                {context.user.user.name}, parabéns pelo cadastro!
+              </Text>
+              <Text style={styles.title}>
+                Agora a administracao precisa liberar seu acesso.
+              </Text>
+            </>
+          )}
 
-            <View style={styles.propertyList}>
-              {context.user.user.properties.map((item, index) => (
-                <TouchableOpacity
-                  key={index}
-                  onPress={() => handleChoosePropertyButton(item)}
-                  style={styles.propertyListItem}>
-                  <Text style={styles.propertyListItemText}>{item.name}</Text>
-                </TouchableOpacity>
-              ))}
-            </View>
-          </>
-        )}
+          {context.user.user.properties.length > 0 && (
+            <>
+              <Text style={styles.title}>Olá {context.user.user.name}</Text>
+              <Text style={styles.title}>Escolha uma de suas propriedades</Text>
 
-        {!loading && context.user.user.properties.length <= 0 && (
-          <>
-            <Text style={styles.title}>
-              {context.user.user.name}, parabéns pelo cadastro!
-            </Text>
-            <Text style={styles.title}>
-              Agora a administracao precisa liberar seu acesso.
-            </Text>
-          </>
-        )}
-      </ScrollView>
+              <View style={styles.propertyList}>
+                {context.user.user.properties.map((item, index) => (
+                  <TouchableOpacity
+                    key={index}
+                    onPress={() => handleChoosePropertyButton(item)}
+                    style={styles.propertyListItem}>
+                    <Text style={styles.propertyListItemText}>{item.name}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </>
+          )}
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 };
