@@ -25,8 +25,7 @@ export default () => {
   return (
     <Drawer.Navigator
       screenOptions={screenOptions}
-      drawerContent={(props) => getDrawerLayout(props)}
-    >
+      drawerContent={(props) => getDrawerLayout(props)}>
       <Drawer.Screen name="WallScreen" component={WallScreen} />
       <Drawer.Screen name="DocumentScreen" component={DocumentScreen} />
       <Drawer.Screen name="BilletScreen" component={BilletScreen} />
