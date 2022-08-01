@@ -1,6 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, FlatList, SafeAreaView, View, RefreshControl} from 'react-native';
+import {
+  Alert,
+  FlatList,
+  SafeAreaView,
+  View,
+  RefreshControl,
+} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
@@ -50,12 +56,15 @@ export default () => {
                 refreshing={loading}
                 title="Arraste para atualizar"
                 tintColor="#8B63E7"
-                titleColor="#8B63E7"
+                titleColor="#9C9DB9"
               />
             }
             renderItem={({item}) => <WallItem data={item} />}
             ListEmptyComponent={
-              <ItemEmpty icon="newspaper-o" text="Não há avisos no momento." />
+              <ItemEmpty
+                icon="ios-file-tray"
+                text="Não há avisos no momento."
+              />
             }
             keyExtractor={(item) => item.id.toString()}
             style={styles.list}

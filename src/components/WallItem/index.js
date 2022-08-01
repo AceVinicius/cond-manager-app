@@ -29,10 +29,7 @@ export default ({data}) => {
         <View style={styles.info}>
           <Text style={styles.title}>{data.title}</Text>
           <Text style={styles.date}>
-            {dateFormat(
-              new Date(data.created_at),
-              'dddd, d "de" mmmm, yyyy',
-            )}
+            {dateFormat(new Date(data.created_at), 'dddd, d "de" mmmm, yyyy')}
           </Text>
         </View>
       </View>

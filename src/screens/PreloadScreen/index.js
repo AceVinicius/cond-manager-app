@@ -33,7 +33,7 @@ export default () => {
         return;
       }
 
-      let response = await api.validateToken();
+      const response = await api.validateToken();
 
       if (response.message !== '') {
         dispatch({

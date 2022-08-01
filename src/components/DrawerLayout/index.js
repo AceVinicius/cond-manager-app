@@ -30,7 +30,7 @@ export default ({navigation, state}) => {
     },
     // {
     //   title: 'Reservas',
-    //   icon: 'calendar',
+    //   icon: 'ios-calendar',
     //   screen: 'ReservationScreen',
     // },
     {
@@ -40,7 +40,7 @@ export default ({navigation, state}) => {
     },
     // {
     //   title: 'Achados e Perdidos',
-    //   icon: 'search',
+    //   icon: 'ios-search',
     //   screen: 'LostAndFoundScreen',
     // },
     {
@@ -50,7 +50,7 @@ export default ({navigation, state}) => {
     },
     // {
     //   title: 'Perfil',
-    //   icon: 'user',
+    //   icon: 'ios-person',
     //   screen: 'ProfileScreen',
     // },
   ];
@@ -146,7 +146,7 @@ export default ({navigation, state}) => {
             </Text>
           </View>
           <TouchableOpacity onPress={() => handleMenuButton(null)}>
-            <Icon name="ios-settings" size={24} color="#666e78" />
+            <Icon name="ios-cog" size={24} color="#666e78" />
           </TouchableOpacity>
         </View>
       </View>

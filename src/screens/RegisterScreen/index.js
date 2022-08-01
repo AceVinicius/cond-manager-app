@@ -55,7 +55,7 @@ export default () => {
       return;
     }
 
-    let response = await api.register(
+    const response = await api.register(
       name,
       email,
       cpf,

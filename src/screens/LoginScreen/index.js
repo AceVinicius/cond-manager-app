@@ -32,7 +32,7 @@ export default () => {
       return;
     }
 
-    let response = await api.login(cpf, password);
+    const response = await api.login(cpf, password);
 
     if (response.message !== '') {
       Alert.alert('Login', response.message);

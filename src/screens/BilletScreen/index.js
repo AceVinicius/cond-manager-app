@@ -1,6 +1,12 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, FlatList, SafeAreaView, View, RefreshControl} from 'react-native';
+import {
+  Alert,
+  FlatList,
+  SafeAreaView,
+  View,
+  RefreshControl,
+} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
@@ -50,7 +56,7 @@ export default () => {
                 refreshing={loading}
                 title="Arraste para atualizar"
                 tintColor="#8B63E7"
-                titleColor="#8B63E7"
+                titleColor="#9C9DB9"
               />
             }
             renderItem={({item}) => <BilletItem data={item} />}
