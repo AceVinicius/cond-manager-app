@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, FlatList, SafeAreaView, View} from 'react-native';
+import {Alert, FlatList, SafeAreaView, View, RefreshControl} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
@@ -44,8 +44,15 @@ export default () => {
         {!loading && (
           <FlatList
             data={documentList}
-            onRefresh={getDocuments}
-            refreshing={loading}
+            refreshControl={
+              <RefreshControl
+                onRefresh={getDocuments}
+                refreshing={loading}
+                title="Arraste para atualizar"
+                tintColor="#8B63E7"
+                titleColor="#8B63E7"
+               />
+            }
             renderItem={({item}) => <DocumentItem data={item} />}
             ListEmptyComponent={
               <ItemEmpty

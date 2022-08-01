@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Alert, Text, TouchableOpacity, View} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import dateFormat from 'dateformat';
 
 import api from '../../services/api';
@@ -25,13 +25,13 @@ export default ({data}) => {
   return (
     <View style={styles.box}>
       <View style={styles.header}>
-        <Icon name="newspaper-o" size={30} color="#8B63E7" />
+        <Icon name="ios-newspaper" size={30} color="#8B63E7" />
         <View style={styles.info}>
           <Text style={styles.title}>{data.title}</Text>
           <Text style={styles.date}>
             {dateFormat(
               new Date(data.created_at),
-              'dddd, d "de" mmmm, yyyy (HH:MM)',
+              'dddd, d "de" mmmm, yyyy',
             )}
           </Text>
         </View>
@@ -40,9 +40,9 @@ export default ({data}) => {
       <View style={styles.footer}>
         <TouchableOpacity onPress={handleLikeButton} style={styles.likeButton}>
           {liked ? (
-            <Icon name="heart" size={17} color="#ff0000" />
+            <Icon name="ios-heart" size={17} color="#ff0000" />
           ) : (
-            <Icon name="heart-o" size={17} color="#ff0000" />
+            <Icon name="ios-heart-outline" size={17} color="#ff0000" />
           )}
         </TouchableOpacity>
         <Text style={styles.likeText}>

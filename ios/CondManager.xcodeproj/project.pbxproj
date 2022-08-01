@@ -14,10 +14,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-CondManager-CondManagerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-CondManager-CondManagerTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9077369D2865627000025A0B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900AB47828655E610092E3B0 /* FontAwesome.ttf */; };
-		9077369E2865627700025A0B /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900AB47528655E610092E3B0 /* FontAwesome5_Regular.ttf */; };
-		9077369F2865627B00025A0B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900AB47728655E610092E3B0 /* FontAwesome5_Brands.ttf */; };
-		907736A02865627F00025A0B /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 900AB47628655E610092E3B0 /* FontAwesome5_Solid.ttf */; };
+		901098F32898153800026A3F /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90575B61289812EE00B1F831 /* Ionicons.ttf */; };
+		90575B62289812F500B1F831 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 90575B61289812EE00B1F831 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +49,7 @@
 		900AB47628655E610092E3B0 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = ../Fonts/FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
 		900AB47728655E610092E3B0 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = ../Fonts/FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
 		900AB47828655E610092E3B0 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = ../Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		90575B61289812EE00B1F831 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = ../../../Desktop/Ionicons.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -149,6 +148,7 @@
 		907736A2286562B900025A0B /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				90575B61289812EE00B1F831 /* Ionicons.ttf */,
 				900AB47828655E610092E3B0 /* FontAwesome.ttf */,
 				900AB47728655E610092E3B0 /* FontAwesome5_Brands.ttf */,
 				900AB47528655E610092E3B0 /* FontAwesome5_Regular.ttf */,
@@ -220,7 +220,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -255,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901098F32898153800026A3F /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,10 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				907736A02865627F00025A0B /* FontAwesome5_Solid.ttf in Resources */,
-				9077369F2865627B00025A0B /* FontAwesome5_Brands.ttf in Resources */,
-				9077369E2865627700025A0B /* FontAwesome5_Regular.ttf in Resources */,
-				9077369D2865627000025A0B /* FontAwesome.ttf in Resources */,
+				90575B62289812F500B1F831 /* Ionicons.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -456,6 +454,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-CondManager-CondManagerTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -483,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-CondManager-CondManagerTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = CondManagerTests/Info.plist;

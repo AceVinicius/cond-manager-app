@@ -1,10 +1,10 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {Alert, FlatList, SafeAreaView, View} from 'react-native';
+import {Alert, FlatList, SafeAreaView, View, RefreshControl} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
-import DocumentItem from '../../components/DocumentItem';
+import BilletItem from '../../components/BilletItem';
 import ItemEmpty from '../../components/ItemEmpty';
 
 export default () => {
@@ -44,12 +44,19 @@ export default () => {
         {!loading && (
           <FlatList
             data={billetList}
-            onRefresh={getBillets}
-            refreshing={loading}
-            renderItem={({item}) => <DocumentItem data={item} />}
+            refreshControl={
+              <RefreshControl
+                onRefresh={getBillets}
+                refreshing={loading}
+                title="Arraste para atualizar"
+                tintColor="#8B63E7"
+                titleColor="#8B63E7"
+              />
+            }
+            renderItem={({item}) => <BilletItem data={item} />}
             ListEmptyComponent={
               <ItemEmpty
-                icon="file-text"
+                icon="ios-receipt"
                 text="Não há boletos nesta unidade no momento."
               />
             }

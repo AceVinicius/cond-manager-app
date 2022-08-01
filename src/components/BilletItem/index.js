@@ -15,7 +15,7 @@ export default ({data}) => {
 
   return (
     <TouchableOpacity onPress={handleDocumentButton} style={styles.box}>
-      <Icon name="ios-document-text" size={30} color="#8B63E7" />
+      <Icon name="ios-receipt" size={30} color="#8B63E7" />
       <Text style={styles.title}>{data.title}</Text>
     </TouchableOpacity>
   );

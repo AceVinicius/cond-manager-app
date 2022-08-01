@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import api from '../../services/api';
 import {useStateValue} from '../../contexts/StateContext';
@@ -20,12 +20,12 @@ export default ({navigation, state}) => {
   const menus = [
     {
       title: 'Mural de Avisos',
-      icon: 'inbox',
+      icon: 'ios-file-tray-full',
       screen: 'WallScreen',
     },
     {
       title: 'Documentos',
-      icon: 'file-text',
+      icon: 'ios-document-text',
       screen: 'DocumentScreen',
     },
     // {
@@ -33,11 +33,11 @@ export default ({navigation, state}) => {
     //   icon: 'calendar',
     //   screen: 'ReservationScreen',
     // },
-    // {
-    //   title: 'Livro de Ocorrências',
-    //   icon: 'bug',
-    //   screen: 'WarningScreen',
-    // },
+    {
+      title: 'Livro de Ocorrências',
+      icon: 'ios-bug',
+      screen: 'WarningScreen',
+    },
     // {
     //   title: 'Achados e Perdidos',
     //   icon: 'search',
@@ -45,7 +45,7 @@ export default ({navigation, state}) => {
     // },
     {
       title: 'Boletos',
-      icon: 'wpforms',
+      icon: 'ios-receipt',
       screen: 'BilletScreen',
     },
     // {
@@ -127,7 +127,7 @@ export default ({navigation, state}) => {
             onPress={handleLogoutButton}
             style={styles.menuButton}>
             <View style={styles.menuButtonSquare} />
-            <Icon name="toggle-left" size={20} color="#666e78" />
+            <Icon name="ios-exit" size={20} color="#666e78" />
             <Text style={styles.menuButtonText}>Sair</Text>
           </TouchableOpacity>
         </ScrollView>
@@ -146,7 +146,7 @@ export default ({navigation, state}) => {
             </Text>
           </View>
           <TouchableOpacity onPress={() => handleMenuButton(null)}>
-            <Icon name="gear" size={24} color="#666e78" />
+            <Icon name="ios-settings" size={24} color="#666e78" />
           </TouchableOpacity>
         </View>
       </View>
