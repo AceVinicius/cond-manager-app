@@ -46,31 +46,29 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.padding}>
-        {!loading && (
-          <FlatList
-            data={billetList}
-            refreshControl={
-              <RefreshControl
-                onRefresh={getBillets}
-                refreshing={loading}
-                title="Arraste para atualizar"
-                tintColor="#8B63E7"
-                titleColor="#9C9DB9"
-              />
-            }
-            renderItem={({item}) => <BilletItem data={item} />}
-            ListEmptyComponent={
-              <ItemEmpty
-                icon="ios-receipt"
-                text="Não há boletos nesta unidade no momento."
-              />
-            }
-            keyExtractor={(item) => item.id.toString()}
-            style={styles.list}
-          />
-        )}
-      </View>
+      {!loading && (
+        <FlatList
+          data={billetList}
+          refreshControl={
+            <RefreshControl
+              onRefresh={getBillets}
+              refreshing={loading}
+              title="Arraste para atualizar"
+              tintColor="#8B63E7"
+              titleColor="#9C9DB9"
+            />
+          }
+          renderItem={({item}) => <BilletItem data={item} />}
+          ListEmptyComponent={
+            <ItemEmpty
+              icon="ios-receipt"
+              text="Não há boletos nesta unidade no momento."
+            />
+          }
+          keyExtractor={(item) => item.id.toString()}
+          style={styles.list}
+        />
+      )}
     </SafeAreaView>
   );
 };

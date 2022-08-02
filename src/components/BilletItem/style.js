@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     borderColor: '#E8E9ED',
     borderRadius: 15,
     padding: 15,
-    marginVertical: 10,
+    margin: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
