@@ -22,22 +22,7 @@ export default ({data}) => {
     <View style={styles.box}>
       <Text style={styles.date}>{dateFormat(new Date(data.created_at), 'dddd, d "de" mmmm, yyyy')}</Text>
       <Text style={styles.title}>{data.title}</Text>
-
-      <View style={styles.statusArea}>
-        {data.status === 'IN_REVIEW' && (
-          <>
-            <Icon name="ios-file-tray-full" size={24} color="#8B63E7" />
-            <Text style={styles.statusText}>Ocorrência em análise</Text>
-          </>
-        )}
-
-        {data.status === 'RESOLVED' && (
-          <>
-            <Icon name="ios-file-tray" size={24} color="#8B63E7" />
-            <Text style={styles.statusText}>Resolvido</Text>
-          </>
-        )}
-      </View>
+      <Text style={styles.description}>{data.description}</Text>
 
       {data.photos.length > 0 && (
         <ScrollView horizontal={true} style={styles.photoArea}>
@@ -56,6 +41,22 @@ export default ({data}) => {
           ))}
         </ScrollView>
       )}
+
+      <View style={styles.statusArea}>
+        {data.status === 'IN_REVIEW' && (
+          <>
+            <Icon name="ios-file-tray-full" size={24} color="#8B63E7" />
+            <Text style={styles.statusText}>Ocorrência em análise</Text>
+          </>
+        )}
+
+        {data.status === 'RESOLVED' && (
+          <>
+            <Icon name="ios-file-tray" size={24} color="#8B63E7" />
+            <Text style={styles.statusText}>Resolvido</Text>
+          </>
+        )}
+      </View>
 
       <Modal animationType="slide" transparent={true} visible={showModal}>
         <SafeAreaView style={styles.modalArea}>

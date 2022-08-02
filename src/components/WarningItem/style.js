@@ -16,13 +16,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   title: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#000000',
+    marginBottom: 4,
+  },
+  description: {
     fontSize: 15,
-    lor: '#000000',
+    color: '#000000',
+    textAlign: 'justify',
+    marginBottom: 10,
   },
   statusArea: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 10,
   },
   statusText: {
     fontSize: 14,
@@ -30,6 +37,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   photoArea: {
+    marginBottom: 10,
     flexDirection: 'row',
   },
   photoItem: {
@@ -50,9 +58,8 @@ const styles = StyleSheet.create({
   modalCloseButton: {
     width: 30,
     height: 30,
-    position: 'absolute',
     top: 10,
-    right: 10,
+    left: 10,
   },
 });
 
