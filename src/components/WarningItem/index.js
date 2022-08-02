@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {View, Image, Modal, Text, ScrollView, TouchableOpacity, SafeAreaView} from 'react-native';
+import {
+  View,
+  Image,
+  Modal,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import dateFormat from 'dateformat';
 
@@ -20,7 +28,9 @@ export default ({data}) => {
 
   return (
     <View style={styles.box}>
-      <Text style={styles.date}>{dateFormat(new Date(data.created_at), 'dddd, d "de" mmmm, yyyy')}</Text>
+      <Text style={styles.date}>
+        {dateFormat(new Date(data.created_at), 'dddd, d "de" mmmm, yyyy')}
+      </Text>
       <Text style={styles.title}>{data.title}</Text>
       <Text style={styles.description}>{data.description}</Text>
 
@@ -36,7 +46,6 @@ export default ({data}) => {
                 resizeMode="cover"
                 style={styles.photo}
               />
-
             </TouchableOpacity>
           ))}
         </ScrollView>

@@ -5,7 +5,6 @@ import {
   FlatList,
   SafeAreaView,
   TouchableOpacity,
-  View,
   RefreshControl,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';

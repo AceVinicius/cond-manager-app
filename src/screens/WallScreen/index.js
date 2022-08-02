@@ -1,12 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {
-  Alert,
-  FlatList,
-  SafeAreaView,
-  View,
-  RefreshControl,
-} from 'react-native';
+import {Alert, FlatList, SafeAreaView, RefreshControl} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
@@ -60,10 +54,7 @@ export default () => {
           }
           renderItem={({item}) => <WallItem data={item} />}
           ListEmptyComponent={
-            <ItemEmpty
-              icon="ios-file-tray"
-              text="Não há avisos no momento."
-            />
+            <ItemEmpty icon="ios-file-tray" text="Não há avisos no momento." />
           }
           keyExtractor={(item) => item.id.toString()}
           style={styles.list}

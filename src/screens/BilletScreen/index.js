@@ -1,12 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {
-  Alert,
-  FlatList,
-  SafeAreaView,
-  View,
-  RefreshControl,
-} from 'react-native';
+import {Alert, FlatList, SafeAreaView, RefreshControl} from 'react-native';
 
 import api from '../../services/api';
 import styles from './style';
