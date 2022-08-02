@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 15,
-    lor: '#000000',
+    color: '#000000',
     marginLeft: 10,
   },
 });
