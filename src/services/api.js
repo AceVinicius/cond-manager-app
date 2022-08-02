@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const BASE_URL = 'https://cond-manager.herokuapp.com/api';
+// const BASE_URL = 'https://cond-manager.herokuapp.com/api';
+const BASE_URL = 'http://127.0.0.1:8000/api';
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
@@ -125,6 +126,68 @@ const api = {
     property = JSON.parse(property);
 
     let json = await request('get', `units/${property.id}/billets`, {}, token);
+
+    return json;
+  },
+
+  getWarnings: async () => {
+    let token = await api.getToken();
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request('get', `units/${property.id}/warnings`, {}, token);
+
+    return json;
+  },
+
+  sendWarningFile: async (file) => {
+    let token = await api.getToken();
+
+    let formData = new FormData();
+    formData.append('photo', {
+      uri: file.uri,
+      type: file.type,
+      name: file.fileName,
+    });
+
+    let res;
+
+    try {
+      res = await fetch(`${BASE_URL}/warning/file`, {
+        method: 'POST',
+        headers: {
+          Accept: 'multipart/form-data',
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+        body: formData,
+      });
+    } catch (error) {
+      return error;
+    }
+
+    let json = await res.json();
+
+    return json;
+  },
+
+  sendWarning: async (title, description, photos) => {
+    let token = await api.getToken();
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request(
+      'post',
+      `units/${property.id}/warnings`,
+      {
+        title: title,
+        description: description,
+        photos: photos,
+      },
+      token,
+    );
 
     return json;
   },
