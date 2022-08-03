@@ -27,7 +27,7 @@ export default () => {
     navigation.setOptions({
       headerTitle: 'Cadastro',
     });
-  }, []);
+  }, [navigation]);
 
   async function handleRegisterButton() {
     if (!name) {

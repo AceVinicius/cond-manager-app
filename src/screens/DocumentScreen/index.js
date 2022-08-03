@@ -16,7 +16,7 @@ export default () => {
     navigation.setOptions({
       headerTitle: 'Documentos do Condomínio',
     });
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     getDocuments();

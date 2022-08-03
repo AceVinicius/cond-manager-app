@@ -28,7 +28,7 @@ export default () => {
     navigation.setOptions({
       headerTitle: 'Adicionar uma Ocorrência',
     });
-  }, []);
+  }, [navigation]);
 
   async function handleAddPhoto() {
     const settings = {

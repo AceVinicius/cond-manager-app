@@ -24,7 +24,7 @@ export default () => {
       headerTitle: 'Livro de Ocorrências',
       headerRight: () => CreateHeaderButton({navigation}),
     });
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     getWarnings();

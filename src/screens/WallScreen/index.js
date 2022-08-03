@@ -16,7 +16,7 @@ export default () => {
     navigation.setOptions({
       headerTitle: 'Mural de Avisos',
     });
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     getWall();

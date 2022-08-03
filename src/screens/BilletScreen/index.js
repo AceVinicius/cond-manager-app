@@ -16,7 +16,7 @@ export default () => {
     navigation.setOptions({
       headerTitle: 'Boletos',
     });
-  }, []);
+  }, [navigation]);
 
   useEffect(() => {
     getBillets();
