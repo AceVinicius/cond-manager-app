@@ -32,12 +32,12 @@ export default () => {
 
   async function getAreas() {
     setLoading(true);
-    setList([]);
-
+    
     const response = await api.getAreas();
-
+    
     if (response.message !== '') {
       Alert.alert('Reservas', response.message);
+      setList([]);
       setLoading(false);
       return;
     }
@@ -60,29 +60,27 @@ export default () => {
         <Text style={styles.title}>Selecione uma área</Text>
       </View>
 
-      {!loading && (
-        <FlatList
-          data={list}
-          refreshControl={
-            <RefreshControl
-              onRefresh={getAreas}
-              refreshing={loading}
-              title="Arraste para atualizar"
-              tintColor="#8B63E7"
-              titleColor="#9C9DB9"
-            />
-          }
-          renderItem={({item}) => <AreaItem data={item} />}
-          ListEmptyComponent={
-            <ItemEmpty
-              icon="ios-today"
-              text="Não há áreas disponíveis no momento."
-            />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          style={styles.list}
-        />
-      )}
+      <FlatList
+        data={list}
+        refreshControl={
+          <RefreshControl
+            onRefresh={getAreas}
+            refreshing={loading}
+            title="Arraste para atualizar"
+            tintColor="#8B63E7"
+            titleColor="#9C9DB9"
+          />
+        }
+        renderItem={({item}) => <AreaItem data={item} />}
+        ListEmptyComponent={
+          <ItemEmpty
+            icon="ios-today"
+            text="Não há áreas disponíveis no momento."
+          />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };

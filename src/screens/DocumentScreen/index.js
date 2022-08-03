@@ -24,12 +24,12 @@ export default () => {
 
   async function getDocuments() {
     setLoading(true);
-    setDocumentList([]);
-
+    
     const response = await api.getDocument();
-
+    
     if (response.message !== '') {
       Alert.alert('Documentos', response.message);
+      setDocumentList([]);
       setLoading(false);
       return;
     }
@@ -40,29 +40,27 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {!loading && (
-        <FlatList
-          data={documentList}
-          refreshControl={
-            <RefreshControl
-              onRefresh={getDocuments}
-              refreshing={loading}
-              title="Arraste para atualizar"
-              tintColor="#8B63E7"
-              titleColor="#9C9DB9"
-            />
-          }
-          renderItem={({item}) => <DocumentItem data={item} />}
-          ListEmptyComponent={
-            <ItemEmpty
-              icon="ios-document-text"
-              text="Não há documentos no momento."
-            />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          style={styles.list}
-        />
-      )}
+      <FlatList
+        data={documentList}
+        refreshControl={
+          <RefreshControl
+            onRefresh={getDocuments}
+            refreshing={loading}
+            title="Arraste para atualizar"
+            tintColor="#8B63E7"
+            titleColor="#9C9DB9"
+          />
+        }
+        renderItem={({item}) => <DocumentItem data={item} />}
+        ListEmptyComponent={
+          <ItemEmpty
+            icon="ios-document-text"
+            text="Não há documentos no momento."
+          />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };

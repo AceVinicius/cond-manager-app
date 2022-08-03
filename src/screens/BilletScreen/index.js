@@ -24,12 +24,12 @@ export default () => {
 
   async function getBillets() {
     setLoading(true);
-    setBilletList([]);
-
+    
     const response = await api.getBillet();
-
+    
     if (response.message !== '') {
       Alert.alert('Boletos', response.message);
+      setBilletList([]);
       setLoading(false);
       return;
     }
@@ -40,29 +40,27 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {!loading && (
-        <FlatList
-          data={billetList}
-          refreshControl={
-            <RefreshControl
-              onRefresh={getBillets}
-              refreshing={loading}
-              title="Arraste para atualizar"
-              tintColor="#8B63E7"
-              titleColor="#9C9DB9"
-            />
-          }
-          renderItem={({item}) => <BilletItem data={item} />}
-          ListEmptyComponent={
-            <ItemEmpty
-              icon="ios-receipt"
-              text="Não há boletos nesta unidade no momento."
-            />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          style={styles.list}
-        />
-      )}
+      <FlatList
+        data={billetList}
+        refreshControl={
+          <RefreshControl
+            onRefresh={getBillets}
+            refreshing={loading}
+            title="Arraste para atualizar"
+            tintColor="#8B63E7"
+            titleColor="#9C9DB9"
+          />
+        }
+        renderItem={({item}) => <BilletItem data={item} />}
+        ListEmptyComponent={
+          <ItemEmpty
+            icon="ios-receipt"
+            text="Não há boletos nesta unidade no momento."
+          />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };

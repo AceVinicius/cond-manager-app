@@ -24,12 +24,12 @@ export default () => {
 
   async function getWall() {
     setLoading(true);
-    setWallList([]);
-
+    
     const response = await api.getWall();
-
+    
     if (response.message !== '') {
       Alert.alert('Mural de Avisos', response.message);
+      setWallList([]);
       setLoading(false);
       return;
     }
@@ -40,26 +40,24 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {!loading && (
-        <FlatList
-          data={wallList}
-          refreshControl={
-            <RefreshControl
-              onRefresh={getWall}
-              refreshing={loading}
-              title="Arraste para atualizar"
-              tintColor="#8B63E7"
-              titleColor="#9C9DB9"
-            />
-          }
-          renderItem={({item}) => <WallItem data={item} />}
-          ListEmptyComponent={
-            <ItemEmpty icon="ios-file-tray" text="Não há avisos no momento." />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          style={styles.list}
-        />
-      )}
+      <FlatList
+        data={wallList}
+        refreshControl={
+          <RefreshControl
+            onRefresh={getWall}
+            refreshing={loading}
+            title="Arraste para atualizar"
+            tintColor="#8B63E7"
+            titleColor="#9C9DB9"
+          />
+        }
+        renderItem={({item}) => <WallItem data={item} />}
+        ListEmptyComponent={
+          <ItemEmpty icon="ios-file-tray" text="Não há avisos no momento." />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };

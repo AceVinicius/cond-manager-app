@@ -32,12 +32,12 @@ export default () => {
 
   async function getWarnings() {
     setLoading(true);
-    setWarningList([]);
-
+    
     const response = await api.getWarnings();
-
+    
     if (response.message !== '') {
       Alert.alert('Livro de Ocorrências', response.message);
+      setWarningList([]);
       setLoading(false);
       return;
     }
@@ -48,26 +48,24 @@ export default () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {!loading && (
-        <FlatList
-          data={warningList}
-          refreshControl={
-            <RefreshControl
-              onRefresh={getWarnings}
-              refreshing={loading}
-              title="Arraste para atualizar"
-              tintColor="#8B63E7"
-              titleColor="#9C9DB9"
-            />
-          }
-          renderItem={({item}) => <WarningItem data={item} />}
-          ListEmptyComponent={
-            <ItemEmpty icon="ios-bug" text="Não há ocorrências no momento." />
-          }
-          keyExtractor={(item) => item.id.toString()}
-          style={styles.list}
-        />
-      )}
+      <FlatList
+        data={warningList}
+        refreshControl={
+          <RefreshControl
+            onRefresh={getWarnings}
+            refreshing={loading}
+            title="Arraste para atualizar"
+            tintColor="#8B63E7"
+            titleColor="#9C9DB9"
+          />
+        }
+        renderItem={({item}) => <WarningItem data={item} />}
+        ListEmptyComponent={
+          <ItemEmpty icon="ios-bug" text="Não há ocorrências no momento." />
+        }
+        keyExtractor={(item) => item.id.toString()}
+        style={styles.list}
+      />
     </SafeAreaView>
   );
 };
