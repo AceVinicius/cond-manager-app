@@ -28,11 +28,11 @@ export default ({navigation, state}) => {
       icon: 'ios-document-text',
       screen: 'DocumentScreen',
     },
-    // {
-    //   title: 'Reservas',
-    //   icon: 'ios-calendar',
-    //   screen: 'ReservationScreen',
-    // },
+    {
+      title: 'Reservas',
+      icon: 'ios-calendar',
+      screen: 'ReservationScreen',
+    },
     {
       title: 'Livro de Ocorrências',
       icon: 'ios-bug',
