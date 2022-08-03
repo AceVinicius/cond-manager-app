@@ -24,9 +24,9 @@ export default () => {
 
   async function getWall() {
     setLoading(true);
-    
+
     const response = await api.getWall();
-    
+
     if (response.message !== '') {
       Alert.alert('Mural de Avisos', response.message);
       setWallList([]);

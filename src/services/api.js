@@ -201,14 +201,24 @@ const api = {
 
   getDisabledDays: async (id) => {
     let token = await api.getToken();
-    let json = await request('get', `reservation/${id}/disabled-days`, {}, token);
+    let json = await request(
+      'get',
+      `reservation/${id}/disabled-days`,
+      {},
+      token,
+    );
 
     return json;
   },
 
   getReservationTimes: async (id, date) => {
     let token = await api.getToken();
-    let json = await request('get', `reservation/${id}/available-times`, {date}, token);
+    let json = await request(
+      'get',
+      `reservation/${id}/available-times`,
+      {date},
+      token,
+    );
 
     return json;
   },
@@ -219,7 +229,12 @@ const api = {
 
     property = JSON.parse(property);
 
-    let json = await request('post', `units/${property.id}/reservations`, {id, date, time}, token);
+    let json = await request(
+      'post',
+      `units/${property.id}/reservations`,
+      {id, date, time},
+      token,
+    );
 
     return json;
   },
@@ -230,10 +245,26 @@ const api = {
 
     property = JSON.parse(property);
 
-    let json = await request('get', `units/${property.id}/reservations`, {}, token);
+    let json = await request('get',`units/${property.id}/reservations`,{},token);
 
     return json;
-  }
+  },
+
+  deleteMyReservations: async (id) => {
+    let token = await api.getToken();
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request(
+      'delete',
+      `units/${property.id}/reservations/${id}`,
+      {},
+      token,
+    );
+
+    return json;
+  },
 };
 
 export default api;

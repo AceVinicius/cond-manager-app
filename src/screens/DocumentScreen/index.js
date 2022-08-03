@@ -24,9 +24,9 @@ export default () => {
 
   async function getDocuments() {
     setLoading(true);
-    
+
     const response = await api.getDocument();
-    
+
     if (response.message !== '') {
       Alert.alert('Documentos', response.message);
       setDocumentList([]);

@@ -32,9 +32,9 @@ export default () => {
 
   async function getWarnings() {
     setLoading(true);
-    
+
     const response = await api.getWarnings();
-    
+
     if (response.message !== '') {
       Alert.alert('Livro de Ocorrências', response.message);
       setWarningList([]);

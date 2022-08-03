@@ -1,11 +1,6 @@
-import {useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
-import {
-  Alert,
-  SafeAreaView,
-  FlatList,
-  RefreshControl,
-} from 'react-native';
+import {Alert, SafeAreaView, FlatList, RefreshControl} from 'react-native';
 
 import api from '../../services/api';
 import ItemEmpty from '../../components/ItemEmpty';
@@ -14,25 +9,24 @@ import styles from './style';
 
 export default () => {
   const navigation = useNavigation();
-  const route = useRoute();
   const [loading, setLoading] = useState(true);
   const [myReservations, setMyReservations] = useState([]);
 
   useEffect(() => {
     navigation.setOptions({
-      headerTitle: `Minhas Reservas`,
+      headerTitle: 'Minhas Reservas',
     });
     getMyReservations();
   }, [navigation]);
 
   async function getMyReservations() {
     setLoading(true);
-    setMyReservations([]);
 
     const response = await api.getMyReservations();
 
     if (response.message !== '') {
-      Alert.alert('Minhas Reservas', response,message);      
+      Alert.alert('Minhas Reservas', response.message);
+      setMyReservations([]);
       setLoading(false);
       return;
     }

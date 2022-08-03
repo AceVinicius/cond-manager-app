@@ -32,9 +32,9 @@ export default () => {
 
   async function getAreas() {
     setLoading(true);
-    
+
     const response = await api.getAreas();
-    
+
     if (response.message !== '') {
       Alert.alert('Reservas', response.message);
       setList([]);
@@ -53,7 +53,9 @@ export default () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.padding}>
-        <TouchableOpacity onPress={handleMyReservationsButton} style={styles.button}>
+        <TouchableOpacity
+          onPress={handleMyReservationsButton}
+          style={styles.button}>
           <Text style={styles.buttonText}>Minhas Reservas</Text>
         </TouchableOpacity>
 

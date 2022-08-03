@@ -24,9 +24,9 @@ export default () => {
 
   async function getBillets() {
     setLoading(true);
-    
+
     const response = await api.getBillet();
-    
+
     if (response.message !== '') {
       Alert.alert('Boletos', response.message);
       setBilletList([]);
