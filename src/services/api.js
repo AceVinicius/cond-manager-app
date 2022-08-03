@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// const BASE_URL = 'https://cond-manager.herokuapp.com/api';
-const BASE_URL = 'http://127.0.0.1:8000/api';
+const BASE_URL = 'https://cond-manager.herokuapp.com/api';
+// const BASE_URL = 'http://127.0.0.1:8000/api';
 
 const request = async (method, endpoint, params, token = null) => {
   method = method.toLowerCase();
@@ -191,6 +191,49 @@ const api = {
 
     return json;
   },
+
+  getAreas: async () => {
+    let token = await api.getToken();
+    let json = await request('get', 'areas', {}, token);
+
+    return json;
+  },
+
+  getDisabledDays: async (id) => {
+    let token = await api.getToken();
+    let json = await request('get', `reservation/${id}/disabled-days`, {}, token);
+
+    return json;
+  },
+
+  getReservationTimes: async (id, date) => {
+    let token = await api.getToken();
+    let json = await request('get', `reservation/${id}/available-times`, {date}, token);
+
+    return json;
+  },
+
+  sendReservation: async (id, date, time) => {
+    let token = await api.getToken();
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request('post', `units/${property.id}/reservations`, {id, date, time}, token);
+
+    return json;
+  },
+
+  getMyReservations: async () => {
+    let token = await api.getToken();
+    let property = await api.getProperty();
+
+    property = JSON.parse(property);
+
+    let json = await request('get', `units/${property.id}/reservations`, {}, token);
+
+    return json;
+  }
 };
 
 export default api;
