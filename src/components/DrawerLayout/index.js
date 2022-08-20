@@ -145,7 +145,7 @@ export default ({navigation, state}) => {
               {context.user.property.name}
             </Text>
           </View>
-          <TouchableOpacity onPress={() => handleMenuButton(null)}>
+          <TouchableOpacity onPress={() => handleMenuButton('UnitScreen')}>
             <Icon name="ios-cog" size={24} color="#666e78" />
           </TouchableOpacity>
         </View>
