@@ -245,7 +245,7 @@ const api = {
 
     property = JSON.parse(property);
 
-    let json = await request('get',`units/${property.id}/reservations`,{},token);
+    let json = await request('get', `units/${property.id}/reservations`, {}, token);
 
     return json;
   },
@@ -262,6 +262,13 @@ const api = {
       {},
       token,
     );
+
+    return json;
+  },
+
+  getLostAndFound: async () => {
+    let token = await api.getToken();
+    let json = await request('get', `lost-n-found`, {}, token);
 
     return json;
   },

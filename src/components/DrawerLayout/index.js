@@ -38,11 +38,11 @@ export default ({navigation, state}) => {
       icon: 'ios-bug',
       screen: 'WarningScreen',
     },
-    // {
-    //   title: 'Achados e Perdidos',
-    //   icon: 'ios-search',
-    //   screen: 'LostAndFoundScreen',
-    // },
+    {
+      title: 'Achados e Perdidos',
+      icon: 'ios-search',
+      screen: 'LostAndFoundScreen',
+    },
     {
       title: 'Boletos',
       icon: 'ios-receipt',
